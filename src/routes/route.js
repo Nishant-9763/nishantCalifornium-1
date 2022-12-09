@@ -47,7 +47,7 @@ router.get('/test-me', function (req, res) {
 
 
 
-    res.send('any dummy text')
+    res.send('This is my first ever API !')
 });
 
 
@@ -55,6 +55,7 @@ router.get('/test-you', function(req, res){
     console.log("I am here")
     res.send("very important text")
 })
+
 
 
 module.exports = router;
