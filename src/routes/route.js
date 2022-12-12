@@ -65,6 +65,7 @@ router.get("/profile/:name", function(req, res){
     console.log('user name is',req.params.name)
     //console.log(`User requesting for profile is ${name}`)
     res.send("dummy details")
+    res.send("Nishant")
 })
 
 // Query Param example
@@ -80,16 +81,42 @@ router.get("/movies", function(req, res){
     res.send(`Movies array = [${arr}]`)
 })
 
-router.get("/movies/:indexnumber", function(req,res){
-    let arr = ["Extraction","Men in Black","Hatti Mere Satti","Saudaghar"]
-    let prr=""
-    for(let i = 0 ; i<arr.length; i++){
-        prr=arr[i]
-        return prr;
-    }
-    console.log(prr[i])
-    res.send("hii")
+    router.get("/movies/:indexnumber2", function(req,res){
+        let arr = ["Extraction","Men in Black","Hatti Mere Satti","Saudaghar"]
+        let id =req.params.indexnumber2
+        if(id>=arr.length){
+            res.send("enter valid number")
+        }
+
+   
+    
+    res.send(`${arr[id]}`)
 })
+
+router.get("/films",function(req, res){
+    let arr = [{"id":1,"name" :"Extraction"},
+                {"id":2,"name":"Men in Black"},
+            {"id":3,"name":"Hatti Mere Satti"},
+            {"id":4,"name":"Saudaghar"}]
+            console.log(arr)
+
+    res.send(arr)
+})
+
+router.get("/films/:filmId",function(req,res){
+    let arr = [{"id":0,"name" :"Extraction"},
+                {"id":1,"name":"Men in Black"},
+            {"id":2,"name":"Hatti Mere Satti"},
+            {"id":3,"name":"Saudaghar"}]
+    let uy  =req.params.filmId
+    if (uy>=arr.length){
+        res.send("enter valid id")
+    }
+    
+    res.send(arr[uy])
+})
+
+
 
 router.get("/sol1", function(req,res){
     let arr=[1,2,3,5,6,7]
@@ -127,5 +154,6 @@ router.get("/sol2", function(req,res){
 
     res.send({data:missingNumber})
 })
+
 
 module.exports = router;
