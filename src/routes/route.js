@@ -6,6 +6,7 @@ const _ = require('underscore')
 const mentorModule = require('../abc/xyz/myModule'); 
 const req = require('express/lib/request');
 const { route } = require('express/lib/application');
+const { application } = require('express');
 
 
 router.get("/profile-details", function(req, res){
@@ -72,6 +73,59 @@ router.get("/shoes", function(req, res){
     //req.query.size
     //req.query.brand
     res.send("dummy shoes response")
+})
+
+router.get("/movies", function(req, res){
+    let arr = ["Extraction","Men in Black","Hatti Mere Satti","Saudaghar"]
+    res.send(`Movies array = [${arr}]`)
+})
+
+router.get("/movies/:indexnumber", function(req,res){
+    let arr = ["Extraction","Men in Black","Hatti Mere Satti","Saudaghar"]
+    let prr=""
+    for(let i = 0 ; i<arr.length; i++){
+        prr=arr[i]
+        return prr;
+    }
+    console.log(prr[i])
+    res.send("hii")
+})
+
+router.get("/sol1", function(req,res){
+    let arr=[1,2,3,5,6,7]
+    let missingNumber
+    let sum =0
+    let n = arr[arr.length-1]
+    // missingNumber = 28-24
+    for(let i =0; i<arr.length; i++){
+         sum += arr[i]
+    }
+    console.log(sum)
+    
+    missingNumber=(n*(n+1))/2-sum
+
+
+    res.send({data:missingNumber })
+})
+
+router.get("/sol2", function(req,res){
+    let arr=[33,34,35,37,38]
+    let missingNumber
+    // missingNumber = 213 - 177
+    l = arr[arr.length-1]
+    f =arr[0]
+    n = arr.length +1
+    let sum =0
+    for(let i= 0; i<arr.length;i++){
+        sum =sum +arr[i]
+    }
+    missingNumber = n*(f+l)/2 - sum
+    console.log(l)
+    console.log(f)
+    console.log(n)
+    console.log(sum)
+
+    res.send({data:missingNumber})
 })
 
 module.exports = router;
