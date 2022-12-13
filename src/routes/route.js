@@ -76,6 +76,8 @@ router.get("/shoes", function(req, res){
     res.send("dummy shoes response")
 })
 
+
+
 router.get("/movies", function(req, res){
     let arr = ["Extraction","Men in Black","Hatti Mere Satti","Saudaghar"]
     res.send(`Movies array = [${arr}]`)
