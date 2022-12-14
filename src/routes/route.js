@@ -66,6 +66,7 @@ router.post("/test-post-3", function (req, res) {
 router.post("/test-post-4", function (req, res) {
     let arr = [12, "functionup"]
     let ele = req.body.element
+    console.log(ele)
     arr.push(ele)
     res.send({ msg: arr, status: true })
 })
@@ -105,7 +106,7 @@ router.post("/players", function (req, res) {
 
         if(req.body.name === yu){
 
-            res.send("already present")
+           return res.send("already present") //use return to avoide http header error
 
             break
 
@@ -113,7 +114,8 @@ router.post("/players", function (req, res) {
 
             players.push(newplayer)
 
-            res.send({ data: players, status: true })
+          return  res.send({ data: players, status: true })//use return to avoide http header error
+
 
         }
     }
