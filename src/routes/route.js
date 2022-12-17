@@ -16,4 +16,8 @@ router.post("/createBook", UserController.bookShabi)
 
 router.get("/getBooks", UserController.dhekhoBook)
 
+router.post("/partyPerson" ,UserController.partyMeAnneVAle)
+
+router.get("/getPartyPersons", UserController.kitnePersonHai)
+
 module.exports = router;

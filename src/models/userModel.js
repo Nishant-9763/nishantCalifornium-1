@@ -35,10 +35,34 @@ const bookSchema =new mongoose.Schema({
 
 })
 
+const partySchema =new mongoose.Schema({
+    firstName : String,
+    lastName : String,
+    age : Number,
+    bringMoney :{
+        type : String,
+        required : true
+    },
+    food :{
+        type : String,
+        required :true,
+        enum :["veg","nonVeg","noFood"]
+    },
+    drink:{
+        type: String,
+        required: true,
+        enum:["softDrink","hardDrink","noDrink"]
+
+    },
+    partyTill:Number
+
+}, {timestamps:true})
+
 
 
 module.exports = mongoose.model('User', userSchema) //users
 module.exports =mongoose.model("Books",bookSchema) //books
+module.exports = mongoose.model("PartyPerson",partySchema)
 
 
 // String, Number
