@@ -17,7 +17,7 @@ const getRandomBooks = async function(req,res){
 }
 
 const getXINRBooks =async function(req,res){
-    let sbook =await bookModel.find({indianPrice :/INR$/})//.count()
+    let sbook =await bookModel.find({"price.indianPrice" :/INR$/})//.count()
     res.send({e:sbook})
 }
 const getBooksInYear= async function(req,res){
