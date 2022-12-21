@@ -5,6 +5,8 @@ const UserController= require("../controllers/userController")
 const BookController= require("../controllers/bookController")
 const AuthorController0 = require("../controllers/authorController0")
 const BookController0 = require("../controllers/bookController0") 
+const CustomerController = require("../controllers/customerController")
+const CardController = require("../controllers/cardController")
 
 router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
@@ -51,5 +53,13 @@ router.get("/find1", AuthorController0.find1)
 router.get("/find2" , AuthorController0.find2)
 
 // router.get("/set",AuthorController0.set0)
+
+router.post("/createCustomer",CustomerController.createCustomer)
+
+router.post("/createCard" , CardController.createCard)
+
+router.get("/getCust",CustomerController.getCustomer)
+
+router.get("/getCard", CardController.getCard)
 
 module.exports = router;
